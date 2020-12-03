@@ -12,7 +12,7 @@ class Shop extends React.Component {
 
   componentDidMount(){
       this.fetchItem();
-      console.log(this.props.match)
+      console.log(this.props.history)
   }
  fetchItem = async ()=>{
  const data = await fetch(`https://fortnite-api.theapinetwork.com/item/get?id=${this.props.match.params.id}`);
@@ -34,6 +34,9 @@ class Shop extends React.Component {
     <div>
    <h1>{this.state.item.name}</h1>
    <img src={this.state.images.icon} alt="hbj"/>
+   <button onClick={()=>{
+     this.props.history.push('/')
+   }}>push</button>
 
 </div>
   );
